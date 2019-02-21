@@ -15,4 +15,8 @@ export class InitUsers1530542855524 implements MigrationInterface {
             DROP SEQUENCE IF EXISTS users_id_seq
         `);
     }
+
+    getName(): string {
+        return (this.constructor as any).name;
+    }
 }

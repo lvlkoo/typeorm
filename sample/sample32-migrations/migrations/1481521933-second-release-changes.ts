@@ -11,4 +11,8 @@ export class SecondReleaseMigration1481521933 implements MigrationInterface {
         await queryRunner.query("ALTER TABLE `post` CHANGE `title` `name` VARCHAR(255)");
     }
 
+    getName(): string {
+        return (this.constructor as any).name;
+    }
+
 }
