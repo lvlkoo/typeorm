@@ -15,4 +15,9 @@ export interface MigrationInterface {
      */
     down(queryRunner: QueryRunner): Promise<any>;
 
+    /**
+     * Get migration name in format classNameTIMESTAMP.
+     */
+    getName(): string;
+
 }

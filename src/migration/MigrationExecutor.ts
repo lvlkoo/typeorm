@@ -280,12 +280,12 @@ export class MigrationExecutor {
      */
     protected getMigrations(): Migration[] {
         const migrations = this.connection.migrations.map(migration => {
-            const migrationClassName = (migration.constructor as any).name;
-            const migrationTimestamp = parseInt(migrationClassName.substr(-13));
+            const migrationName = migration.getName();
+            const migrationTimestamp = parseInt(migrationName.substr(-13));
             if (!migrationTimestamp)
-                throw new Error(`${migrationClassName} migration name is wrong. Migration class name should have a JavaScript timestamp appended.`);
+                throw new Error(`${migrationName} migration name is wrong. Migration class name should have a JavaScript timestamp appended.`);
 
-            return new Migration(undefined, migrationTimestamp, migrationClassName, migration);
+            return new Migration(undefined, migrationTimestamp, migrationName, migration);
         });
 
         // sort them by timestamp

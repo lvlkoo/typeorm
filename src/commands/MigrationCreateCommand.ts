@@ -84,6 +84,10 @@ export class ${camelCase(name, true)}${timestamp} implements MigrationInterface 
 
     public async down(queryRunner: QueryRunner): Promise<any> {
     }
+    
+    public string getName(): string {
+        return (this.constructor as any).name
+    }
 
 }
 `;

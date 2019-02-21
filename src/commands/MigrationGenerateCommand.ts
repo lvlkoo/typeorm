@@ -134,6 +134,10 @@ ${upSqls.join(`
 ${downSqls.join(`
 `)}
     }
+    
+    public string getName(): string {
+        return (this.constructor as any).name
+    }
 
 }
 `;
